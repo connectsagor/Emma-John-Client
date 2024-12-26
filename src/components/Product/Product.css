@@ -1,0 +1,30 @@
+.product {
+  display: flex;
+  margin-right: 5px;
+  padding-bottom: 7px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid lightgray;
+}
+
+.product-info {
+  margin-left: 10px;
+  padding: 10x;
+}
+.product-info h4 {
+  color: #3c00ff;
+}
+
+.my-button {
+  background-color: goldenrod;
+  width: 150px;
+  padding: 8px;
+  /* color: #fff; */
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid lightslategray;
+}
+
+.my-button span {
+  margin-left: 8px;
+}
