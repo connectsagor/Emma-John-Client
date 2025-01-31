@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Shop.css";
-import FakeData from "../../fakeData/products.json";
+
 import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
 
 const Shop = () => {
-  const firstTen = FakeData.slice(0, 10);
-  const [productData, setProductData] = useState(firstTen);
+  const [productData, setProductData] = useState([]);
   const [cart, setCart] = useState([]);
+  console.log(productData);
+  useEffect(() => {
+    fetch("http://localhost:5000/products")
+      .then((res) => res.json())
+      .then((data) => setProductData(data));
+  }, []);
 
   //addProduct
   const handleAddToCart = (product) => {
@@ -27,7 +32,7 @@ const Shop = () => {
         ))}
       </div>
       <div className="cart-container">
-        <Cart cart={cart}></Cart>
+        <Cart product={productData} cart={cart}></Cart>
       </div>
     </main>
   );
