@@ -16,3 +16,6 @@ li {
   border-right: 1px solid lightgray;
   margin-left: 25px;
 }
+
+@media screen and (max) {
+}

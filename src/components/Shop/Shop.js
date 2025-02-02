@@ -7,7 +7,7 @@ import Cart from "../Cart/Cart";
 const Shop = () => {
   const [productData, setProductData] = useState([]);
   const [cart, setCart] = useState([]);
-  console.log(productData);
+
   useEffect(() => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
@@ -32,7 +32,7 @@ const Shop = () => {
         ))}
       </div>
       <div className="cart-container">
-        <Cart product={productData} cart={cart}></Cart>
+        <Cart cart={cart}></Cart>
       </div>
     </main>
   );
