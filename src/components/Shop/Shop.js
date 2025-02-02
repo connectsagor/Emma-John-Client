@@ -21,7 +21,7 @@ const Shop = () => {
   };
 
   return (
-    <main className="shop">
+    <main className="shop container-fluid">
       <div className="product-container">
         {productData.map((el) => (
           <Product

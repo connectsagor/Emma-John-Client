@@ -12,6 +12,7 @@ import Login from "./components/Login/Login";
 import { getAuth } from "firebase/auth";
 import SignUp from "./components/SignUp/SignUp";
 import Shipping from "./components/Shipping/Shipping";
+import ProductInfo from "./components/ProductInfo/ProductInfo";
 export const ProductContext = createContext();
 
 const firebaseConfig = {
@@ -89,6 +90,14 @@ function App() {
             element={
               <>
                 <Header></Header>, <Shipping></Shipping>
+              </>
+            }
+          />
+          <Route
+            path="/productInfo/:id"
+            element={
+              <>
+                <Header></Header>, <ProductInfo></ProductInfo>
               </>
             }
           />
