@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { ProductContext } from "../../App";
 const ProductInfo = () => {
+  const userContext = useContext(ProductContext);
+  const { cartItems, setCartItems } = userContext[0];
+  const { isLogedIn, setIsLogedIn } = userContext[1];
   const navigate = useNavigate();
   const [data, setData] = useState("");
   const { id } = useParams();
@@ -32,6 +36,9 @@ const ProductInfo = () => {
             </div>
           );
         })}
+      <button className="btn-primary py-2 px-4 mt-2 rounded-1">
+        Add to Cart
+      </button>
     </div>
   );
 };

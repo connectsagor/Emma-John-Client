@@ -16,7 +16,8 @@ const Cart = ({ cart }) => {
   }, 0);
 
   let shipping = (total / 10).toFixed(2);
-  total = total + Number(shipping);
+
+  total = (total + Number(shipping)).toFixed(2);
 
   const handleOrderReview = (cartItems) => {
     if (cartItems.length === 0) {
@@ -31,12 +32,24 @@ const Cart = ({ cart }) => {
   };
   return (
     <div className="order container">
-      <h4>Order Summary</h4>
-      <p>Items Orderd: {cart.length}</p>
-      <p>Shippping cost: ${shipping}</p>
-      <p>Total cost: ${total}</p>
+      <h2>Order Summary</h2>
+      <p>
+        {" "}
+        <strong>Items Orderd: {cart.length}</strong>
+      </p>
+      <p>
+        {" "}
+        <strong>Shippping cost: ${shipping}</strong>
+      </p>
+      <p>
+        {" "}
+        <strong>Total cost: ${total}</strong>
+      </p>
 
-      <button onClick={() => handleOrderReview(cart)} className="order-btn">
+      <button
+        onClick={() => handleOrderReview(cart)}
+        className="order-btn btn-primary py-2 px-4 rounded-1"
+      >
         Order Review
       </button>
     </div>

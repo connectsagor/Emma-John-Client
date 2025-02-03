@@ -28,7 +28,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 function App() {
-  const [isLogedIn, setIsLogedIn] = useState({});
+  const [isLogedIn, setIsLogedIn] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [user, setUser] = useState({});
   const [totalPrice, setTotalPrice] = useState(0);
@@ -56,9 +56,9 @@ function App() {
           <Route
             path="/inventory"
             element={
-              <>
+              <PrivateRoute>
                 <Header></Header>, <Inventory></Inventory>
-              </>
+              </PrivateRoute>
             }
           />
           <Route
@@ -88,9 +88,9 @@ function App() {
           <Route
             path="/shipping"
             element={
-              <>
+              <PrivateRoute>
                 <Header></Header>, <Shipping></Shipping>
-              </>
+              </PrivateRoute>
             }
           />
           <Route

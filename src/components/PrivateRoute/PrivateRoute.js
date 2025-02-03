@@ -8,11 +8,11 @@ import { ProductContext } from "../../App";
 
 const PrivateRoute = ({ children }) => {
   const userContext = useContext(ProductContext);
-  const { user, setUser } = userContext[2];
+  const { isLogedIn, setIsLogedIn } = userContext[1];
 
   const location = useLocation();
 
-  return user.email ? (
+  return isLogedIn ? (
     children
   ) : (
     <Navigate

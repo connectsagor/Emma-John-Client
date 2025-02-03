@@ -6,3 +6,19 @@
     transform: rotate(360deg);
   }
 }
+
+.btn-primary {
+  background-color: rgb(255 216 20);
+  border: none;
+  cursor: pointer;
+  color: rgb(44, 37, 2);
+  font-weight: 600;
+}
+
+.color-primary {
+  color: rgb(42, 36, 3);
+}
+
+a {
+  text-decoration: none;
+}

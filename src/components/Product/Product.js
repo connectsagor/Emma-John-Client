@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
@@ -30,11 +30,11 @@ const Product = (props) => {
         <p>only {stock} left in stock - order soon</p>
         <button
           onClick={() => props.handleAddToCart(props.product)}
-          className="my-button"
+          className="btn-primary py-2 px-4 rounded-1"
         >
           {" "}
           <FontAwesomeIcon icon={faShoppingCart} />
-          <span>Add to cart</span>
+          <span className="ms-2">Add to cart</span>
         </button>
       </div>
     </div>
