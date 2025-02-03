@@ -15,6 +15,11 @@ const ProductInfo = () => {
       .then((data) => setData(data));
   }, [id]);
 
+  const handleAddToCart = (product) => {
+    const newCart = [...cartItems, product];
+
+    setCartItems(newCart);
+  };
   return (
     <div className="container">
       <button className="border-0 py-2 px-4 mb-5" onClick={() => navigate(-1)}>
@@ -33,12 +38,15 @@ const ProductInfo = () => {
               <div className="col-md-6 d-flex justify-content-center">
                 <img src={el.img} alt={el.name} />
               </div>
+              <button
+                onClick={() => handleAddToCart(el)}
+                className="btn-primary py-2 px-4 mt-2 rounded-1 w-25"
+              >
+                Add to Cart
+              </button>
             </div>
           );
         })}
-      <button className="btn-primary py-2 px-4 mt-2 rounded-1">
-        Add to Cart
-      </button>
     </div>
   );
 };

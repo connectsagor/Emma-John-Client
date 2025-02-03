@@ -32,6 +32,8 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [user, setUser] = useState({});
   const [totalPrice, setTotalPrice] = useState(0);
+
+  console.log(cartItems);
   return (
     <ProductContext
       value={[

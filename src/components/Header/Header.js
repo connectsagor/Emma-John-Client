@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import "./Header.css";
+import { Cart4 } from "react-bootstrap-icons";
+
 import logo from "../../images/logo.png";
 import { Link, useRoutes } from "react-router";
 import { getAuth, signOut } from "firebase/auth";
 import { ProductContext } from "../../App";
 const Header = () => {
   const userContext = useContext(ProductContext);
+  const { cartItems, setCartItems } = userContext[0];
   const { isLogedIn, setIsLogedIn } = userContext[1];
   const { user, setUser } = userContext[2];
 
@@ -31,6 +34,15 @@ const Header = () => {
         <Link to="/manage">Manage</Link>
         <Link to="/inventory">Inventory</Link>
         {isLogedIn && <Link onClick={handleSignOut}>Sign Out</Link>}
+        <div className="text-white ">
+          <Link
+            to="orderReview"
+            className="d-flex justify-content-center align-items-center"
+          >
+            <Cart4 className="cart-icon" />
+            <p>{cartItems.length}</p>
+          </Link>
+        </div>
       </nav>
     </header>
   );

@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Shop.css";
 
 import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
+import { ProductContext } from "../../App";
 
 const Shop = () => {
   const [productData, setProductData] = useState([]);
-  const [cart, setCart] = useState([]);
+  const userContext = useContext(ProductContext);
+  const { cartItems, setCartItems } = userContext[0];
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -16,8 +18,8 @@ const Shop = () => {
 
   //addProduct
   const handleAddToCart = (product) => {
-    const newCart = [...cart, product];
-    setCart(newCart);
+    const newCart = [...cartItems, product];
+    setCartItems(newCart);
   };
 
   return (
@@ -32,7 +34,7 @@ const Shop = () => {
         ))}
       </div>
       <div className="cart-container">
-        <Cart cart={cart}></Cart>
+        <Cart cart={cartItems}></Cart>
       </div>
     </main>
   );
